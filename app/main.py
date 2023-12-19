@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 
+from users import urls
+
 app = FastAPI(title="FastAPI, Docker, and Traefik")
 
 
-@app.get("/")
-def read_root():
-    return {"hello": "world"}
+app.include_router(urls.router)
